@@ -4,21 +4,45 @@
 
 <TodoScreen>:
     orientation: 'vertical'
+    Label:
+        id: lbl_result
+        text: '-'
+        size_hint_y: 0.06
+        font_size: self.height/2
+    TextInput:
+        id: txt_todo
+        multiline: True
+        size_hint_y: 1
+        font_size: self.height/22
     BoxLayout:
-        orientation: 'vertical'
-        Label:
-            id: lbl_result
-            text: '-'
-            size_hint_y: 0.06
+        orientation: 'horizontal'
+        size_hint_y: 0.06
+        Button:
+            id: btn_open
+            text: 'Load'
+            size_hint_x: 0.5
             font_size: self.height/2
-        TextInput:
-            id: txt_todo
-            multiline: True
-            size_hint_y: 1
-            font_size: self.height/22
+            on_press: root.show_load()
         Button:
             id: btn_random
             text: 'Random'
-            size_hint_y: 0.06
+            size_hint_x: 0.5
             font_size: self.height/2
             on_press: root.get_random()
+
+<LoadDialog>:
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+            Button:
+                text: "Load"
+                on_release: root.load(filechooser.path, filechooser.selection)
