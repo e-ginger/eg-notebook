@@ -1,14 +1,24 @@
+# экран телефона 1080*2280
+# область приложения 1080*2080
+
+
 <TodoScreen>:
-    orientation: 'vertical'
-    Label:
-        id: lbl_result
-        text: '-'
-        size_hint_max_y: 50
-    TextInput:
-        id: txt_todo
-        multiline: True
-    Button:
-        id: btn_random
-        text: 'Random'
-        size_hint_max_y: 50
-        on_press: root.get_random()
+    BoxLayout:
+        orientation: 'vertical'
+        size: root.size
+        Label:
+            id: lbl_result
+            text: '-'
+            size_hint_y: 0.06
+            font_size: self.height/2
+        TextInput:
+            id: txt_todo
+            multiline: True
+            size_hint_y: 1
+            font_size: self.height/18
+        Button:
+            id: btn_random
+            text: 'Random'
+            size_hint_y: 0.06
+            font_size: self.height/2
+            on_press: root.get_random()

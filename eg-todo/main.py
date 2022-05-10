@@ -1,12 +1,23 @@
 import kivy
-from kivy.app import App
-from kivy.uix.boxlayout import BoxLayout
-import random
-
 kivy.require('2.1.0')
 
+from kivy.config import Config
+# Config.set('kivy', 'keyboard_mode', 'systemanddock')
 
-class TodoScreen(BoxLayout):
+from kivy.core.window import Window
+Window.softinput_mode = 'resize'
+
+from kivy.app import App
+from kivy.uix.widget import Widget
+
+import random
+
+
+__author__ = 'eginger'
+__version__ = '0.0.1'
+
+
+class TodoScreen(Widget):
 
     def __init__(self, **kwargs):
         super(TodoScreen, self).__init__(**kwargs)
