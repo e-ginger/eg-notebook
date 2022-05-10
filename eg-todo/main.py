@@ -7,6 +7,11 @@ from kivy.config import Config
 from kivy.core.window import Window
 Window.softinput_mode = 'resize'
 
+if kivy.utils.platform == "android":
+    from android.storage import primary_external_storage_path
+    from android.permissions import request_permissions, Permission
+    request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
@@ -18,7 +23,7 @@ import os
 
 
 __author__ = 'eginger'
-__version__ = '0.0.3'
+__version__ = '0.0.4'
 
 
 class LoadDialog(FloatLayout):
