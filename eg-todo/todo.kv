@@ -3,9 +3,9 @@
 
 
 <TodoScreen>:
+    orientation: 'vertical'
     BoxLayout:
         orientation: 'vertical'
-        size: root.size
         Label:
             id: lbl_result
             text: '-'
@@ -15,7 +15,7 @@
             id: txt_todo
             multiline: True
             size_hint_y: 1
-            font_size: self.height/18
+            font_size: self.height/22
         Button:
             id: btn_random
             text: 'Random'
